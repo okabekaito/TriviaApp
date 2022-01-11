@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use APP\HTTP\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -23,10 +24,10 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  PostRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(StorePostRequest $request)
+    public function store(PostRequest $request)
     {
         $post = Post::create($request->all());
 
@@ -50,11 +51,11 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePostRequest  $request
+     * @param  \PostRequest  $request
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         $post->title = $request->title;
         $post->category = $request->title;
