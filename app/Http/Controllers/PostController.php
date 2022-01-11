@@ -23,12 +23,16 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePostRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $post = Post::create($request->all());
+
+        return $post
+            ? response()->json($post, 201)
+            : response()->json([], 500);
     }
 
     /**
@@ -48,21 +52,29 @@ class PostController extends Controller
      *
      * @param  \App\Http\Requests\UpdatePostRequest  $request
      * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $post->title = $request->title;
+        $post->category = $request->title;
+        $post->content = $request->title;
+
+        return $post->update()
+            ? response()->json($post)
+            : response()->json([], 500);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Post $post)
     {
-        //
+        return $post->delete()
+            ? response()->json($post)
+            : response()->json([], 500);
     }
 }
