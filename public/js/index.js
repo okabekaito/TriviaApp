@@ -37256,6 +37256,44 @@ exports.MenuIconButton = MenuIconButton;
 
 /***/ }),
 
+/***/ "./resources/ts/components/atoms/button/PrimaryButton.tsx":
+/*!****************************************************************!*\
+  !*** ./resources/ts/components/atoms/button/PrimaryButton.tsx ***!
+  \****************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.PrimaryButton = void 0;
+
+var react_1 = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
+
+var react_2 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var PrimaryButton = function PrimaryButton(props) {
+  var children = props.children;
+  return react_2["default"].createElement(react_2["default"].Fragment, null, react_2["default"].createElement(react_1.Button, {
+    bg: "#BEE3F8",
+    _hover: {
+      opacity: 0.8
+    }
+  }, children));
+};
+
+exports.PrimaryButton = PrimaryButton;
+
+/***/ }),
+
 /***/ "./resources/ts/components/molecules/MenuDrawer.tsx":
 /*!**********************************************************!*\
   !*** ./resources/ts/components/molecules/MenuDrawer.tsx ***!
@@ -37474,6 +37512,8 @@ var react_1 = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakr
 
 var react_2 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var PrimaryButton_1 = __webpack_require__(/*! ../../atoms/button/PrimaryButton */ "./resources/ts/components/atoms/button/PrimaryButton.tsx");
+
 var LoginPage = function LoginPage() {
   return react_2["default"].createElement(react_2["default"].Fragment, null, react_2["default"].createElement(react_1.Flex, {
     align: "center",
@@ -37499,12 +37539,7 @@ var LoginPage = function LoginPage() {
     placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
   }), react_2["default"].createElement(react_1.Input, {
     placeholder: "\u30D1\u30B9\u30EF\u30FC\u30C9"
-  }), react_2["default"].createElement(react_1.Button, {
-    bg: "#BEE3F8",
-    _hover: {
-      opacity: 0.8
-    }
-  }, "\u30ED\u30B0\u30A4\u30F3")))));
+  }), react_2["default"].createElement(PrimaryButton_1.PrimaryButton, null, "\u30ED\u30B0\u30A4\u30F3")))));
 };
 
 exports.LoginPage = LoginPage;

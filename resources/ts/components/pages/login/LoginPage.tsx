@@ -1,5 +1,6 @@
-import { Box, Button, Divider, Flex, Heading, Input, Stack } from "@chakra-ui/react"
+import { Box, Divider, Flex, Heading, Input, Stack } from "@chakra-ui/react"
 import React, { VFC } from "react"
+import { PrimaryButton } from "../../atoms/button/PrimaryButton"
 
 
 export const LoginPage : VFC = () => {
@@ -12,7 +13,7 @@ export const LoginPage : VFC = () => {
                 <Stack spacing={4} py={3} px={10}>
                 <Input placeholder="メールアドレス" />
                 <Input placeholder="パスワード" />
-                <Button bg="#BEE3F8" _hover={{ opacity:0.8}}>ログイン</Button>
+                <PrimaryButton>ログイン</PrimaryButton>
                 </Stack>
             </Box>
         </Flex>
