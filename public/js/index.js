@@ -37282,7 +37282,10 @@ var react_2 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var MenuDrawer = function MenuDrawer(props) {
   var onClose = props.onClose,
-      isOpen = props.isOpen;
+      isOpen = props.isOpen,
+      onClickHome = props.onClickHome,
+      onClickHelp = props.onClickHelp,
+      onClickLogin = props.onClickLogin;
   return react_2["default"].createElement(react_2["default"].Fragment, null, react_2["default"].createElement(react_1.Drawer, {
     placement: "left",
     size: "xs",
@@ -37292,11 +37295,14 @@ var MenuDrawer = function MenuDrawer(props) {
     p: 0,
     bg: "gray.100"
   }, react_2["default"].createElement(react_1.Button, {
-    w: "100%"
+    w: "100%",
+    onClick: onClickHome
   }, "\u30C8\u30C3\u30D7"), react_2["default"].createElement(react_1.Button, {
-    w: "100%"
+    w: "100%",
+    onClick: onClickHelp
   }, "\u30D8\u30EB\u30D7"), react_2["default"].createElement(react_1.Button, {
-    w: "100%"
+    w: "100%",
+    onClick: onClickLogin
   }, "\u30ED\u30B0\u30A4\u30F3"))))));
 };
 
@@ -37324,9 +37330,11 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.Header = void 0;
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
-var react_2 = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
+var react_2 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var react_3 = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
 
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
@@ -37335,12 +37343,22 @@ var MenuIconButton_1 = __webpack_require__(/*! ../../atoms/button/MenuIconButton
 var MenuDrawer_1 = __webpack_require__(/*! ../../molecules/MenuDrawer */ "./resources/ts/components/molecules/MenuDrawer.tsx");
 
 var Header = function Header() {
-  var _ref = (0, react_2.useDisclosure)(),
+  var _ref = (0, react_3.useDisclosure)(),
       isOpen = _ref.isOpen,
       onOpen = _ref.onOpen,
       onClose = _ref.onClose;
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_2.Flex, {
+  var history = (0, react_router_dom_1.useHistory)();
+  var onClickHome = (0, react_1.useCallback)(function () {
+    return history.push("/");
+  }, []);
+  var onClickHelp = (0, react_1.useCallback)(function () {
+    return history.push("/help");
+  }, []);
+  var onClickLogin = (0, react_1.useCallback)(function () {
+    return history.push("/login");
+  }, []);
+  return react_2["default"].createElement(react_2["default"].Fragment, null, react_2["default"].createElement(react_3.Flex, {
     as: "nav",
     color: '#EDF2F7',
     bg: '#4299E1',
@@ -37350,20 +37368,21 @@ var Header = function Header() {
       base: 3,
       md: 5
     }
-  }, react_1["default"].createElement(react_2.Flex, {
+  }, react_2["default"].createElement(react_3.Flex, {
     align: "center",
     as: "a",
     mr: 8,
     _hover: {
       cursor: "pointer"
-    }
-  }, react_1["default"].createElement(react_2.Heading, {
+    },
+    onClick: onClickHome
+  }, react_2["default"].createElement(react_3.Heading, {
     as: "h1",
     fontSize: {
       base: "md",
       md: "lg"
     }
-  }, "\u307E\u3081\u3077")), react_1["default"].createElement(react_2.Flex, {
+  }, "\u307E\u3081\u3077")), react_2["default"].createElement(react_3.Flex, {
     align: "center",
     fontSize: "sm",
     flexGrow: 2,
@@ -37371,23 +37390,29 @@ var Header = function Header() {
       base: "none",
       md: "flex"
     }
-  }, react_1["default"].createElement(react_2.Box, {
+  }, react_2["default"].createElement(react_3.Box, {
     pr: 4
-  }, react_1["default"].createElement(react_router_dom_1.Link, {
-    to: "/help"
-  }, "\u30D8\u30EB\u30D7")), react_1["default"].createElement(react_2.Box, {
+  }, react_2["default"].createElement(react_router_dom_1.Link, {
+    to: "/help",
+    onClick: onClickHelp
+  }, "\u30D8\u30EB\u30D7")), react_2["default"].createElement(react_3.Box, {
     pr: 4
-  }, react_1["default"].createElement(react_router_dom_1.Link, {
-    to: "/"
-  }, "\u6295\u7A3F\u4E00\u89A7")), react_1["default"].createElement(react_2.Box, {
+  }, react_2["default"].createElement(react_router_dom_1.Link, {
+    to: "/",
+    onClick: onClickHome
+  }, "\u6295\u7A3F\u4E00\u89A7")), react_2["default"].createElement(react_3.Box, {
     pr: 4
-  }, react_1["default"].createElement(react_router_dom_1.Link, {
-    to: "login"
-  }, "\u30ED\u30B0\u30A4\u30F3"))), react_1["default"].createElement(MenuIconButton_1.MenuIconButton, {
+  }, react_2["default"].createElement(react_router_dom_1.Link, {
+    to: "login",
+    onClick: onClickLogin
+  }, "\u30ED\u30B0\u30A4\u30F3"))), react_2["default"].createElement(MenuIconButton_1.MenuIconButton, {
     onOpen: onOpen
-  })), react_1["default"].createElement(MenuDrawer_1.MenuDrawer, {
+  })), react_2["default"].createElement(MenuDrawer_1.MenuDrawer, {
     isOpen: isOpen,
-    onClose: onClose
+    onClose: onClose,
+    onClickHome: onClickHome,
+    onClickHelp: onClickHelp,
+    onClickLogin: onClickLogin
   }));
 };
 
