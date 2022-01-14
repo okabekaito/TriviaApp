@@ -5,7 +5,7 @@ import { Router } from '../Router/router';
 export const App:VFC = () => {
     return (
         <ChakraProvider>
-        <Router></Router>
+        <Router />
         </ChakraProvider>
     )
 }
