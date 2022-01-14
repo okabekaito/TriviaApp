@@ -1,10 +1,13 @@
 import { VFC } from "react";
 import React from "react";
-import { Box, Flex, Heading, IconButton } from "@chakra-ui/react";
+import { Box, Flex, Heading, useDisclosure } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { MenuIconButton } from "../../atoms/button/MenuIconButton";
+import { MenuDrawer } from "../../molecules/MenuDrawer";
 
 export const Header : VFC = () => {
+    const { isOpen,onOpen,onClose } = useDisclosure();
+
     return (
         <>
         <Flex as="nav" color='#EDF2F7' bg='#4299E1' align="center"justify="space-between" padding={{ base:3, md: 5}}>
@@ -22,8 +25,9 @@ export const Header : VFC = () => {
                     <Link to="login">ログイン</Link>
                 </Box>
             </Flex>
-            <IconButton aria-label="メニューボタン" icon={<HamburgerIcon />} size="sm" variant="unstyled" display={{ base:"block",md:"none"}} />
+            <MenuIconButton onOpen={onOpen}/>
         </Flex>
+        <MenuDrawer isOpen={isOpen} onClose={onClose} />
         </>
     );
 
