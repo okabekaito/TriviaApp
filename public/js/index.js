@@ -39669,6 +39669,10 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
+var react_2 = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
+
+var react_3 = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
+
 var PostPage = function PostPage() {
   var _ref = (0, react_1.useState)([]),
       _ref2 = _slicedToArray(_ref, 2),
@@ -39691,13 +39695,20 @@ var PostPage = function PostPage() {
   var getPostsData = function getPostsData() {
     axios_1["default"].get('api/posts').then(function (response) {
       setPosts(response.data);
-      console.log(response.data);
     })["catch"](function () {
       console.log('通信に失敗しました');
     });
   };
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("h1", null, "Post Page"));
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("h1", null, "Post Page"), react_1["default"].createElement(react_3.Table, {
+    variant: 'simple'
+  }, react_1["default"].createElement(react_3.TableCaption, null, "Imperial to metric conversion factors"), react_1["default"].createElement(react_3.Thead, null, react_1["default"].createElement(react_3.Tr, null, react_1["default"].createElement(react_3.Th, null, "\u30BF\u30A4\u30C8\u30EB"), react_1["default"].createElement(react_3.Th, null, "\u30AB\u30C6\u30B4\u30EA\u30FC"), react_1["default"].createElement(react_3.Th, null, "\u5185\u5BB9"), react_1["default"].createElement(react_3.Th, null, "\u4F5C\u6210\u65E5"))), react_1["default"].createElement(react_3.Tbody, null, posts.map(function (post) {
+    return react_1["default"].createElement(react_3.Tr, {
+      key: post.id
+    }, react_1["default"].createElement(react_3.Td, null, post.title), react_1["default"].createElement(react_3.Td, null, post.category), react_1["default"].createElement(react_3.Td, null, post.content), react_1["default"].createElement(react_3.Td, null, post.created_at), react_1["default"].createElement(react_2.Button, null, "\u7DE8\u96C6"), react_1["default"].createElement(react_2.Button, null, "\u524A\u9664"));
+  })), react_1["default"].createElement(react_3.Tfoot, null, react_1["default"].createElement(react_3.Tr, null, react_1["default"].createElement(react_3.Th, null, "To convert"), react_1["default"].createElement(react_3.Th, null, "into"), react_1["default"].createElement(react_3.Th, {
+    isNumeric: true
+  }, "multiply by")))));
 };
 
 exports.PostPage = PostPage;
