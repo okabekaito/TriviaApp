@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState, VFC } from "react"
 import axios from "axios";
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, Input, InputGroup, InputRightElement, Select, Stack, Textarea } from "@chakra-ui/react";
 import {
     Table,
     Thead,
@@ -50,7 +50,21 @@ export const PostPage : VFC = () => {
     return (
         <>
             <h1>Post Page</h1>
+            <Stack spacing={3}>
+  <Input variant='outline' placeholder='タイトル' />
+  <Select placeholder='カテゴリーを選択'>
+  <option value='option1'>家庭</option>
+  <option value='option2'>生活</option>
+  <option value='option3'>仕事</option>
+  <option value='option4'>お金</option>
+  <option value='option5'>人間関係</option>
+  <option value='option6'>その他</option>
+</Select>
+  <Textarea placeholder='内容' />
+  <Button>投稿</Button>
+</Stack>
             <Table variant='simple'>
+              
   <TableCaption>Imperial to metric conversion factors</TableCaption>
   <Thead>
     <Tr>

@@ -39700,7 +39700,28 @@ var PostPage = function PostPage() {
     });
   };
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("h1", null, "Post Page"), react_1["default"].createElement(react_3.Table, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("h1", null, "Post Page"), react_1["default"].createElement(react_2.Stack, {
+    spacing: 3
+  }, react_1["default"].createElement(react_2.Input, {
+    variant: 'outline',
+    placeholder: "\u30BF\u30A4\u30C8\u30EB"
+  }), react_1["default"].createElement(react_2.Select, {
+    placeholder: "\u30AB\u30C6\u30B4\u30EA\u30FC\u3092\u9078\u629E"
+  }, react_1["default"].createElement("option", {
+    value: 'option1'
+  }, "\u5BB6\u5EAD"), react_1["default"].createElement("option", {
+    value: 'option2'
+  }, "\u751F\u6D3B"), react_1["default"].createElement("option", {
+    value: 'option3'
+  }, "\u4ED5\u4E8B"), react_1["default"].createElement("option", {
+    value: 'option4'
+  }, "\u304A\u91D1"), react_1["default"].createElement("option", {
+    value: 'option5'
+  }, "\u4EBA\u9593\u95A2\u4FC2"), react_1["default"].createElement("option", {
+    value: 'option6'
+  }, "\u305D\u306E\u4ED6")), react_1["default"].createElement(react_2.Textarea, {
+    placeholder: "\u5185\u5BB9"
+  }), react_1["default"].createElement(react_2.Button, null, "\u6295\u7A3F")), react_1["default"].createElement(react_3.Table, {
     variant: 'simple'
   }, react_1["default"].createElement(react_3.TableCaption, null, "Imperial to metric conversion factors"), react_1["default"].createElement(react_3.Thead, null, react_1["default"].createElement(react_3.Tr, null, react_1["default"].createElement(react_3.Th, null, "\u30BF\u30A4\u30C8\u30EB"), react_1["default"].createElement(react_3.Th, null, "\u30AB\u30C6\u30B4\u30EA\u30FC"), react_1["default"].createElement(react_3.Th, null, "\u5185\u5BB9"), react_1["default"].createElement(react_3.Th, null, "\u4F5C\u6210\u65E5"))), react_1["default"].createElement(react_3.Tbody, null, posts.map(function (post) {
     return react_1["default"].createElement(react_3.Tr, {
